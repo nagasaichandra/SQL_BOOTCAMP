@@ -1,0 +1,150 @@
+Joins:
+ This is a mehanism which is used to combine or add one or more than one table.
+ 
+ Classified into 4 types
+ 1. Equi Join/Simple Join
+ 2. Natural Join 
+ 3. Non Equi Join
+ 4. Outer join 
+		1. Left Outer
+		2. Right Outer
+		3. Full Outer 
+		
+Simple Join or Equi Join Or Inner Join:
+1. In this join the matching rows will be displayed as output 
+2. In this join we will be suing equal operator (=)
+3. To perform the join we need one common column
+		Syntax: Select * from table1,table2 where table1.col= tabl2.col
+
+Natural Join: 
+Select tab1.*,tab2.* from join_tab1  tab1 
+inner join join_tab2 tab2 on
+tab1.id = tab2.id;
+
+OUTER JOINS: In equi join there might be a chance of losing information to recover the
+lossed information we need to use outer joins. Outer joins are broadly divide into three types.
+i) Left outer joins
+ii) Right outer joins
+iii) Full outer joins
+i) Left outer join: This join is the combination of equi join operation plus lossed
+information from the left hand side of the table.
+
+
+EX: select * from manu m1 left outer join manu1 m2 on m1.deptno=m2.deptno;
+
+
+Right outer joins: The join is the combination of equi join operation + lossed information
+from the right hand side table.
+
+
+EX: select * from manu m1 right outer join manu1 m2 on m1.deptno=m2.deptno;
+
+
+Full outer join: This join is the combination of equi join operation + lossed information
+from lefy hand side + lossed information from right hand side table.
+
+
+
+Self join: Joining a table by itself known as self join. Whenever we have relationship
+between two columns in the same table then we need to use self join.
+EX: select e1.empno,e2.mgr from emp e1,emp e2 where e1.empno=e2.mgr;
+
+
+
+Constraints: Constraint is the mechanism which is used to restrict the invalid data which
+is enters by the end user by implementing business rules we can apply the constraints on
+two sitchuation on the table.
+1. During the creation of the table.
+2. After creation of the table.
+
+
+
+Constraints have two names
+1. System defined Constraints names
+2. User defined constraints names
+
+1. System defined Constraint names: A constraint name which is defined by the
+system internally those constraints can be called as system defined constraint names.
+
+2. User defined Constraints: The constraint name which is defined by the user
+manually those means those names can be called as user defined constraint names.
+
+We can apply constraints in two levels.
+1. Column level constraints
+2. Table level constraints
+
+
+1. Column level Constraints: Applying the constraints after defining the column
+immediately those constraints can be called as column level constraints.
+
+
+2. Table level constraints: Applying the constraints after defining all the columns in the
+table or at the end of the table those constraints can be called as table level
+constraints. Constraints are classified into six types.
+1. Unique
+2. Not null
+3. Check
+4. Primary key
+5. Foreign key
+6. Defult
+Unique constraint:
+1. This constraint doesn’t allow us to enter duplicate values of a particular column in the
+table.
+2. We can apply constraint more than one column in the table.
+3. We can apply this constraint more than one column in the same table.
+4. This constraint allows us to enter null values.
+5.
+1. Unique key:
+Unique key is a constraint. It never allows duplicate values. But it allows null values.
+We can give constraint in two levels
+1. Table level constraints.
+2. Column level constraints.
+Example for Column level constraints:
+create table work1 (empno number(10) unique, ename varchar(10), sal number(10));
+
+
+Example for Table level constraints:
+create table work2(empno number(10),ename varchar(10), sal number(10), unique(empno));
+Constraint violation
+unique constraint (SCOTT.SYS_C005251) violated.
+2. Not Null: Not null is a constraint which never allows null values but allows
+duplicates. We can apply this constraint in column level only.
+Column level Ex: create table work3 (empno number(10) not null, ename varchar(10), sal
+number(10));
+Table level Ex; create table work4 (empno number(10) ,ename varchar(10),sal number(10)
+not null);
+3. Primary key: It never allows duplicates and null values.
+Column level: create table work6 (empno number(10) primary key,ename varchar(10),sal
+number(10));
+Table level: create table work7 (empno number(10),ename varchar(10),sal number(10),
+primary key(empno));
+4. Check: Which is used to check particular constraint.
+EX: create table work8 (empno number(10),ename varchar(10),sal number(10) check
+(sal=3000);
+5. Foreign key Constraint: Using this constraint we can maintain the relation between
+the tables with in the database. This constraint can also be called as referential
+integrity. If there is any dependencies on the parent table that is dept then we are not
+suppose to delete the parent record from the parent table. If there is no parent values
+in the parent table. We can’t enter the values within the child table that is employee
+table
+
+
+primary key
+
+Index (Btree index) 
+
+Binary Tree Concept:
+
+				Root
+		Left			Right 
+		
+Root Value should be greater than left and less than right 
+left value should be less than root 
+right value should be grater than root 
+
+
+Btree : no of distinct rows / No of rows <= 1 
+
+bitmap: no of dinsint rows /no of rows < 0.05
+
+		
