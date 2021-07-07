@@ -206,20 +206,21 @@ SELECT ENAME, JOB FROM EMP WHERE ENAME LIKE "%AR%";
 SELECT SAL, ROUND(SAL, -3) FROM EMP;
 
 -- 39. Show the salary of all the employees , ignoring the fraction less than Rs. 1000/-.
--- -- -- --  DONT UNDERSTAND THIS QUESTION YET
+-- -- -- --  DONT UNDERSTAND THIS QUESTION YET-- 
+SELECT SAL FROM EMP WHERE SAL > 1000;
 
 -- 40. Show the names of all the employees and date on which they completed 3 years of
 -- service.
 SELECT * FROM EMP;
-SELECT ENAME FROM EMP WHERE YEAR(HIREDATE) < 2018;
+SELECT ENAME FROM EMP WHERE year(current_date()) - year(hiredate) > 3;
 
 -- 41. For each employee, display the no. of days passed since the employee joined the
 -- company.
 SELECT 365*(YEAR(current_date()) - YEAR(hiredate)) FROM EMP;
-
+SELECT datediff(current_date(), hiredate) FROM EMP;
 -- 42. For each employee, display the no. of months passed since the employee joined the
 -- company.
-SELECT 12*(YEAR(current_date()) - YEAR(hiredate)) FROM EMP;
+SELECT floor((datediff(current_date(), hiredate))/12) FROM EMP;
 
 -- 43. Display the details of all the employees sorted on the names.
 SELECT * FROM EMP ORDER BY ENAME;
